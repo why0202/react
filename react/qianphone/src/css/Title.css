@@ -1,0 +1,39 @@
+.breadcrumbs {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #e2e2e2;
+  line-height: 40px;
+}
+.breadcrumbs .breadcrumb {
+  height: 41px;
+  padding-left: 12px;
+}
+.breadcrumbs .breadcrumb li {
+  float: left;
+  list-style: none;
+}
+.page-header {
+  margin: 0 0 12px;
+  border-bottom: 1px dotted #e2e2e2;
+  padding-bottom: 16px;
+  padding-top: 7px;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}
+.page-header::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.page-header span {
+  float: right;
+  margin-right: 23px;
+  width: 100px;
+  height: 30px;
+  background-color: #428bca !important;
+  border-color: #428bca;
+  color: white;
+  line-height: 30px;
+}

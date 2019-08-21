@@ -1,0 +1,118 @@
+.warp {
+  width: 100%;
+  height: 100%;
+  background: url(https://cas.1000phone.net/cas/images/login/bg.png) center
+    no-repeat;
+}
+.warp .fr {
+  float: right;
+}
+.warp .fl {
+  float: left;
+}
+.warp > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-210px, -230px);
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 30px 28px;
+  box-sizing: border-box;
+}
+.warp > div img {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 40px;
+}
+.warp > div .line {
+  background-color: #eeeeee;
+  height: 1px;
+  width: 100%;
+  margin: 18px 0;
+  margin-top: 10px;
+}
+.warp > div .tip {
+  display: inline-block;
+  padding: 22px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  width: 200px;
+  text-align: center;
+  background-color: #fff;
+  font-size: 16px;
+  color: #8a8a8a;
+  position: absolute;
+  margin-left: 0;
+  top: 72px;
+  left: 85px;
+}
+.warp > div form {
+  padding: 15px 0;
+  box-sizing: border-box;
+}
+.warp > div form .alert {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  height: auto;
+  text-align: center;
+  color: red;
+}
+.warp > div form > div {
+  width: 100%;
+  height: 30px;
+  vertical-align: top;
+  position: relative;
+}
+.warp > div form > div i {
+  height: 100%;
+  vertical-align: top;
+}
+.warp > div form > div input {
+  border: 0px;
+  outline: 0px;
+  font-size: 14px;
+  vertical-align: top;
+  height: 30px;
+}
+.warp > div form > div span {
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #5c5c5c;
+  vertical-align: top;
+}
+.warp > div form > div a {
+  font-size: 14px;
+  height: 30px;
+  line-height: 29px;
+  vertical-align: text-bottom;
+  font-size: 16px;
+}
+.warp > div form > div .codepic {
+  text-align: center;
+  font-size: 30px;
+  color: darkslategray;
+  letter-spacing: 4px;
+  right: 0;
+  position: absolute;
+  width: 110px;
+  height: 36px;
+  border: 1px solid #aaa;
+  top: -6px;
+  background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566205289466&di=6f1c14b11545fbba06be6e7e6723793e&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170919%2F4a396e47d2c94abda851d0e4778bc889.jpeg");
+  user-select: none;
+}
+.warp > div form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 16px;
+  background-color: #4f93fe;
+  border: 1px solid #1a72fe;
+  border-radius: 50px;
+  font-size: 18px;
+  color: #fff;
+  outline: none;
+}

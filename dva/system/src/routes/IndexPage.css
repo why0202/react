@@ -1,0 +1,9 @@
+.main {
+  width: 100%;
+}
+.main .main_left {
+  width: 30%;
+}
+.main .main_right {
+  width: 70%;
+}

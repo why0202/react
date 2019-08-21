@@ -1,0 +1,19 @@
+.ant-table-thead tr{
+    background: #f2f2f2;
+    color: #707070
+}
+.ant-table-small{
+    border: none !important;
+}
+.ant-table-body {
+    border: 1px solid #ccc !important;
+}
+.content{
+    width: 100%;
+    padding: 0 12px;
+    margin-bottom: 20px;
+    >div{
+        padding: 10px;
+        border: 1px solid #c5d0dc;
+    }
+}

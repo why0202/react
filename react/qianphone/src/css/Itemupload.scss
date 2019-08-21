@@ -1,0 +1,43 @@
+.table-content {
+    border: 1px solid #c5d0dc;
+    padding: 16px 12px;
+    position: relative;
+    z-index: 11;
+
+    form {
+        padding: 20px 0px;
+
+        .form-group {
+            margin-bottom: 22px;
+            margin-right: -12px;
+            margin-left: -12px;
+
+            label {
+                width: 18%;
+                text-align: right;
+                color: red;
+                vertical-align: middle;
+                font-size: 14px;
+                padding-top: 4px;
+                margin-bottom: 4px;
+            }
+
+            .col-sm-10 {
+                width: 82%;
+
+                input {
+                    display: block;
+                }
+
+                span {
+                    color: red;
+                    vertical-align: middle;
+
+                }
+            }
+        }
+        .from-button{
+            text-align: center;
+        }
+    }
+}
