@@ -9,7 +9,7 @@ const {
 } = require('../lib/mongodb.js');
 /* GET home page. */
 router.post('/add', function (req, res, next) {
-    res.append('Access-Control-Allow-Origin', '*');
+  
     let { name, qes, stuid, time, ans } = req.body
     insert('problem', [{
         'stuid': stuid * 1,
@@ -24,7 +24,7 @@ router.post('/add', function (req, res, next) {
 });
 
 router.get('/find', function (req, res, next) {
-    res.append('Access-Control-Allow-Origin', '*');
+
     let { stuid } = req.query
     find('problem', {
         'stuid': stuid * 1

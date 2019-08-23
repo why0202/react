@@ -3,10 +3,16 @@
   height: 100%;
 }
 .App .App-header {
-  background-color: skyblue;
+  background-color: cornflowerblue;
   width: 100%;
   color: white;
   height: 10%;
+  text-align: center;
+  font-size: 22px;
+  line-height: 58px;
+}
+.App .App-header h2 {
+  color: #fff;
 }
 .App > div article {
   height: 100%;
@@ -18,4 +24,5 @@
 }
 .App > div article:nth-child(2) {
   width: 80%;
+  overflow-y: auto;
 }

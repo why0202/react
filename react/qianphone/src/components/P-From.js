@@ -22,9 +22,9 @@ class FormLayoutDemo extends React.Component {
         super();
         this.state = {
             formLayout: 'horizontal',
-            name: '武红艳',
+            name: "",
             qes: '',
-            stuid: 1,
+            stuid: "",
             data: [],
         };
     }
@@ -76,10 +76,15 @@ class FormLayoutDemo extends React.Component {
         })
     }
     async componentDidMount() {
-        let stuid = 1;
+        let stuinfo = window.localStorage.getItem('stuinfo');
+        await this.setState({
+            name: JSON.parse(stuinfo).name,
+            stuid:JSON.parse(stuinfo).stuid
+        })
+
         let res = await this.$axios('http://localhost:3200/problem/find', {
             params: {
-                stuid
+                stuid:this.state.stuid
             }
         });
         //    console.log(res);
@@ -116,7 +121,7 @@ class FormLayoutDemo extends React.Component {
                     <div>
                         <Form layout={formLayout}>
                             <Form.Item label="学员姓名" {...formItemLayout}>
-                                <Input defaultValue={this.state.name} readOnly unselectable="on" />
+                                <Input value={this.state.name} readOnly unselectable="on" />
                             </Form.Item>
                             <Form.Item label="投诉问题" {...formItemLayout}>
                                 <TextArea rows={6} placeholder="请输入技术问题" value={this.state.qes}

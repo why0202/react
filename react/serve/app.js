@@ -6,11 +6,28 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var problemRouter = require('./routes/problem.js');
-var loginRouter = require('./routes/login.js');
+var problemRouter = require('./routes/problem');
+var loginRouter = require('./routes/login');
+var uploadRouter = require('./routes/upload');
+
+
+// 当有文件上传时这个库会在request中加入一个名为busboy的属性，通过这个属性可以接收并保存文件
+// var busboy = require('connect-busboy');
 
 
 var app = express();
+// app.use(busboy())
+
+// 在全局添加，允许前端用CORS方法跨域
+app.use((req, res, next) => {
+  // 全局添加
+  res.append('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  next();
+});
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,14 +43,16 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/problem', problemRouter);
 app.use('/login', loginRouter);
+app.use('/upload', uploadRouter);
+
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

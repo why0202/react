@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Main.css';
-import { BrowserRouter as Router, Route, Link, } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 
 import { Menu, Icon, Button } from 'antd';
@@ -8,6 +8,7 @@ import Problem from '../views/Index/Problem'
 import Complaint from '../views/Index/Complaint.js'
 import Index from '../views/Index/Index'
 import Itemupload from '../views//Index/Itemupload'
+import { get } from 'https';
 
 // const Complaint = () => import('../views/Complaint');
 const { SubMenu } = Menu;
@@ -38,15 +39,17 @@ class Main extends React.Component {
         title: '学员违纪',
         path: 'discipline',
         key: 12,
-      },]
+      }],
+
     };
   }
+
   toggleCollapsed = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     })
   }
- 
+
   rfor(arr) {
     return arr.map((item) =>
       (<Menu.Item key={item.key}  > <Link to={item.path}> {item.title}</Link></Menu.Item>))

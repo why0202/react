@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Switch } from 'antd';
-import { BrowserRouter as Router, Route, Link, } from "react-router-dom";
+import { Menu, } from 'antd';
+import { Link, } from "react-router-dom";
 const { SubMenu } = Menu;
 
 class Menudown extends Component {
@@ -19,18 +19,18 @@ class Menudown extends Component {
             }, {
                 key: '3',
                 title: '添加商品',
-                path: '/addlist'
-            }]
-                , [{
-                    key: '4',
-                    title: '用户列表',
-                    path: '/userlist'
-                },
-                {
-                    key: '5',
-                    title: '添加用户',
-                    path: '/adduser'
-                }],
+                path: '/addgood'
+            }],
+            [{
+                key: '4',
+                title: '用户列表',
+                path: '/userlist'
+            },
+            {
+                key: '5',
+                title: '添加用户',
+                path: '/adduser'
+            }],
             [{
                 key: '6',
                 title: '订单列表',
@@ -39,15 +39,11 @@ class Menudown extends Component {
             ]
         }
     }
-    handleClick(e) {
-        console.log('click', e);
-    }
 
     rfor(arr) {
         return arr.map((item) =>
-            (<Menu.Item key={item.key}  > <Link to={item.path}> {item.title}</Link></Menu.Item>))
+            (<Menu.Item key={item.key}> <Link to={item.path}> {item.title}</Link></Menu.Item>))
     }
-
     render() {
         return (
             <div style={{
@@ -73,7 +69,6 @@ class Menudown extends Component {
                         }
                     >
                         {this.rfor(this.state.data[0])}
-
                     </SubMenu>
                     <SubMenu
                         key="sub2"
@@ -95,9 +90,7 @@ class Menudown extends Component {
                     >
                         {this.rfor(this.state.data[2])}
                     </SubMenu>
-
                 </Menu>
-
             </div>
         );
     }

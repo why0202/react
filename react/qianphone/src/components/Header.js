@@ -1,24 +1,37 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 import '../css/Header.css';
 import '../Iconfont/iconfont.css'
 class Header extends React.Component {
     constructor(porps) {
         super(porps);
-        this.state={
+        this.state = {
             isok: false,
-            name:''
+            name: ''
         }
     }
-    toggle(){
+    toggle() {
         this.setState({
-            isok:!this.state.isok
+            isok: !this.state.isok
+        })
+    }
+    // 退出
+    exit() {
+        localStorage.clear()
+        this.props.history.push('/login')
+        this.setState({
+            isok: !this.state.isok
         })
     }
     componentDidMount() {
-        let name = window.localStorage.getItem('name');
-        this.setState({
-            name,
-        })
+        let stuinfo = window.localStorage.getItem('stuinfo');
+        if (stuinfo) {
+            // console.log(JSON.parse(stuinfo));
+            this.setState({
+                name: JSON.parse(stuinfo).name,
+            })
+        }
+
     }
     render() {
         return (
@@ -31,13 +44,13 @@ class Header extends React.Component {
                         <i className="iconfont icon-xialajiantou"></i>
                     </a>
                 </div>
-                <div className="exit" style={{'display':this.state.isok?'block':'none'}}>
+                <div className="exit" style={{ 'display': this.state.isok ? 'block' : 'none' }} onClick={this.exit.bind(this)}>
                     <hr />
-                    <p> <i className="iconfont icon-tuichu"></i>
-                    <span> 退出</span></p>
+                    <p> <i className="iconfont icon-exit"></i>
+                        <span> 退出</span></p>
                 </div>
             </div>
         )
     }
 }
-export default Header
+export default withRouter(Header) 

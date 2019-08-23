@@ -10,11 +10,13 @@ class Login extends Component {
       code: '',
       rightcode: '',
       alert: false,
-      errtip:''
+      errtip: ''
     }
   }
   componentDidMount() {
     this.securityCode();
+    let token = JSON.parse(localStorage.getItem('stuinfo')).token
+    console.log(token);
   }
   //验证码
   securityCode() {
@@ -53,32 +55,39 @@ class Login extends Component {
           method: "post",
           url: `http://localhost:3200/login/login`,
           data: this.$qs.stringify({
-              username: this.state.username,
-              password: this.state.password,
+            username: this.state.username,
+            password: this.state.password,
           })
-      }).then(res => {
-        console.log(res);
-        if (res.data) {
-          this.setState({
-            alert: false,
-            errtip:'',
-          })
-          window.localStorage.setItem('stuid', res.data[0].stuid);
-          window.localStorage.setItem('name', res.data[0].name);
-          // console.log(this);
-          this.props.history.push('/index/index')
-        } else {
-          this.setState({
-            alert: true,
-            errtip: '账号密码错误',
-          })
-          this.securityCode()
-        }
-      });
+        }).then(res => {
+          // console.log(res);
+          let obj = {}
+          obj.name = res.data.name;
+          obj.stuid = res.data.stuid;
+          obj.username = res.data.username;
+          obj.token = res.data.token
+          // console.log(obj);
+          if (res.data) {
+            this.setState({
+              alert: false,
+              errtip: '',
+            })
+            let stuinfo = JSON.stringify(obj)
+            // console.log(stuinfo);
+            window.localStorage.setItem('stuinfo', stuinfo);
+            // window.localStorage.setItem('islogin', true);
+            this.props.history.push('/index/index')
+          } else {
+            this.setState({
+              alert: true,
+              errtip: '账号密码错误',
+            })
+            this.securityCode()
+          }
+        });
       } else {
         this.setState({
           alert: true,
-          errtip:'验证码错误'
+          errtip: '验证码错误'
         })
         this.securityCode()
       }
@@ -86,7 +95,7 @@ class Login extends Component {
     } else {
       this.setState({
         alert: true,
-        errtip:'请输入完整的信息'
+        errtip: '请输入完整的信息'
       })
       this.securityCode()
     }

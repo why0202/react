@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import store from '../../store/store'
 import Title from '../../components/Title'
 import '../../css/index.css'
 class Index extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            img: ''
         }
+    }
+    componentDidMount() {
+        // store.subscribe(() => console.log(store.getState()))
+        console.log(this.props.img);
+        //  let img = await store.dispatch({
+        //     type: 'getimg'
+        // })
+        // console.log(img.img);
+        this.setState({
+            img: this.props.img
+        })
+
     }
     render() {
         return (
@@ -17,7 +31,7 @@ class Index extends Component {
                 <div className="clearfix">
                     <div className="fl img">
                         <span>
-                            <img></img>
+                            <img src={this.state.img}></img>
                         </span>
                         <div className="img-name">
                             <div className="inline position-relative">
@@ -139,10 +153,11 @@ class Index extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         );
     }
 }
 
-export default Index;
+export default connect((state) => {
+    return state
+})(Index);
