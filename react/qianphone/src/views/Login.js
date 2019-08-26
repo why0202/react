@@ -13,10 +13,21 @@ class Login extends Component {
       errtip: ''
     }
   }
-  componentDidMount() {
+  async componentDidMount() {
     this.securityCode();
-    let token = JSON.parse(localStorage.getItem('stuinfo')).token
-    console.log(token);
+    if (localStorage.getItem('stuinfo')) {
+      let token = JSON.parse(localStorage.getItem('stuinfo')).token
+
+      let islogin = await this.$axios({
+        method: 'post',
+        url: 'http://localhost:3200/login/check',
+        data: this.$qs.stringify({
+          token
+        })
+      })
+      window.localStorage.setItem('islogin', islogin);
+    }
+
   }
   //验证码
   securityCode() {
@@ -74,7 +85,6 @@ class Login extends Component {
             let stuinfo = JSON.stringify(obj)
             // console.log(stuinfo);
             window.localStorage.setItem('stuinfo', stuinfo);
-            // window.localStorage.setItem('islogin', true);
             this.props.history.push('/index/index')
           } else {
             this.setState({

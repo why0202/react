@@ -15,8 +15,6 @@ React.Component.prototype.$axios = axios;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'; //全局更改
 React.Component.prototype.$qs = qs;
 
-
-
 let islogin = window.localStorage.getItem('islogin');
 
 ReactDOM.render(

@@ -1,0 +1,9 @@
+<!--components/Search.wxml-->
+<view class="section">
+  <input placeholder="输入搜索" auto-focus value="{{key}}" bindinput="changevalue" />
+  <button bindtap="setLoading" bindtap="search">搜索</button>
+</view>
+
+<view wx:for="{{lidata}}" wx:key="key"  wx:for-item="item" >
+    <text >{{item.name}}</text>
+</view>

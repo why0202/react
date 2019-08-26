@@ -1,0 +1,18 @@
+/* components/Search.wxss */
+.section{
+  height: 32px;
+}
+input{
+  width: 80%;
+  height: 32px;
+  border: 1px solid #ccc;
+  float: left;
+box-sizing: border-box;
+}
+button{
+  width: 20%;
+  height: 32px;
+  line-height: 32px;
+  float: right; 
+border-radius: 0px;
+}

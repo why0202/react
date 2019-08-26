@@ -7,25 +7,23 @@ class Index extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            islogin: false
         }
     }
     async componentDidMount() {
-        let token = JSON.parse(localStorage.getItem('stuinfo')).token
-        console.log(token);
-        let islogin = await this.$axios({
-            method:'post',
-            url:'http://localhost:3200/login/check',
-            data:this.$qs.stringify({
-                token
+        if (localStorage.getItem('stuinfo')) {
+            let token = JSON.parse(localStorage.getItem('stuinfo')).token
+            let islogin = await this.$axios({
+                method: 'post',
+                url: 'http://localhost:3200/login/check',
+                data: this.$qs.stringify({
+                    token
+                })
             })
-        })
-        // console.log(islogin);
-
+            window.localStorage.setItem('islogin', islogin.data);
+        }
     }
     render() {
         return (
-
             <div style={{
                 width: '100%',
                 height: '100%'

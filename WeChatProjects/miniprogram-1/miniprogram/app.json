@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/vant/vant",
+    "pages/index/index",
+    "pages/input"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
