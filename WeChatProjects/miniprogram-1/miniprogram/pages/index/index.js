@@ -3,15 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app = getApp();
 Page({
     data: {
-        motto: '点击搜索',
+        motto: '点击 “编译” 以构建',
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
     },
-    next:function(){
-      wx.navigateTo({
-        url: '../input',
-      })
+    bindViewTap: function () {
+        wx.navigateTo({
+            url: '../logs/logs'
+        });
     },
     onLoad: function () {
         var _this = this;

@@ -1,2 +1,14 @@
 <!--miniprogram/pages/vant/vant.wxml-->
-<van-button type="primary">按钮</van-button>
+
+<van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="changekey" use-action-slot label="地址" background="#1c1b20">
+  <view slot="action" bind:tap="onSearch" class="searchbutton">搜索</view>
+</van-search>
+
+<i-grid>
+  <i-grid-item  wx:for="{{iconlit}}" wx:key="key" >
+    <i-grid-icon>
+      <image src="{{item.image_hash}}" />
+    </i-grid-icon>
+    <i-grid-label>{{item.name}}</i-grid-label>
+  </i-grid-item>
+</i-grid>

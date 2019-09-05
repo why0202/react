@@ -3,7 +3,6 @@
     "pages/vant/vant",
     "pages/index/index",
     "pages/input"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",

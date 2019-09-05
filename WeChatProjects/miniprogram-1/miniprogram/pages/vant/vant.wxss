@@ -1,1 +1,12 @@
 /* miniprogram/pages/vant/vant.wxss */
+.searchbutton{
+    color: white;
+}
+.i-grid{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.i-grid-item{
+  width: 20% !important;
+}

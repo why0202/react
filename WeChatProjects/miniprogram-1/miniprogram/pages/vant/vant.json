@@ -1,5 +1,10 @@
 {
   "usingComponents": {
-  "van-button":"../../dist/button/index"
+  "van-button":   "../../miniprogram_npm/vant-weapp/dist/button/index",
+  "van-search":   "../../miniprogram_npm/vant-weapp/dist/search/index",
+  "i-grid":       "../../miniprogram_npm/weui-wxss/dist/grid/index",
+  "i-grid-item":  "../../miniprogram_npm/weui-wxss/dist/grid-item/index",
+  "i-grid-icon":  "../../miniprogram_npm/weui-wxss/dist/grid-icon/index",
+  "i-grid-label": "../../miniprogram_npm/weui-wxss/dist/grid-label/index"
   }
 }
